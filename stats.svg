@@ -1,39 +1,62 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="840" height="300" viewBox="0 0 840 300" font-family="Segoe UI, Helvetica, Arial, sans-serif">
-  <rect width="840" height="300" rx="12" fill="#0D1117" stroke="#30363D"/>
-  <rect x="0" y="0" width="840" height="3" rx="1.5" fill="#C9A227"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="840" height="260" viewBox="0 0 840 260" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+  <style>
+    .card { fill: #0D1117; stroke: #30363D; }
+    .label { fill: #8B949E; font-size: 13px; }
+    .value { fill: #E6EDF3; font-size: 34px; font-weight: 700; }
+    .title { fill: #C9A227; font-size: 14px; font-weight: 600; letter-spacing: 2px; }
+    .bar { rx: 5; }
+    .fade { opacity: 0; animation: fadeUp 0.7s ease-out forwards; }
+    .d1 { animation-delay: 0.1s; }
+    .d2 { animation-delay: 0.25s; }
+    .d3 { animation-delay: 0.4s; }
+    .d4 { animation-delay: 0.55s; }
+    .grow { transform-box: fill-box; transform-origin: left center; transform: scaleX(0); animation: growX 1s ease-out 0.7s forwards; }
+    .g2 { animation-delay: 1.0s; }
+    .g3 { animation-delay: 1.15s; }
+    .legend { opacity: 0; animation: fadeIn 0.6s ease-out 1.3s forwards; }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeIn { to { opacity: 1; } }
+    @keyframes growX { to { transform: scaleX(1); } }
+    @media (prefers-reduced-motion: reduce) {
+      .fade, .grow, .legend { animation: none; opacity: 1; transform: none; }
+    }
+  </style>
 
-  <text x="32" y="48" font-size="16" font-weight="600" fill="#C9A227" letter-spacing="2">STATISTICS</text>
-  <line x1="32" y1="62" x2="808" y2="62" stroke="#30363D"/>
+  <rect class="card" x="0.5" y="0.5" width="839" height="259" rx="12" />
+  <rect x="0" y="0" width="840" height="3" rx="1.5" fill="#C9A227" />
 
-  <g>
-    <text x="32" y="112" font-size="36" font-weight="700" fill="#E6EDF3">14</text>
-    <text x="32" y="136" font-size="13" fill="#8B949E">Private repositories</text>
+  <text class="title" x="32" y="44">ANALYTICS</text>
+  <line x1="32" y1="60" x2="808" y2="60" stroke="#30363D" />
+
+  <g class="fade d1">
+    <text class="value" x="32" y="112">14</text>
+    <text class="label" x="32" y="134">Private repositories</text>
   </g>
-  <g>
-    <text x="246" y="112" font-size="36" font-weight="700" fill="#E6EDF3">133</text>
-    <text x="246" y="136" font-size="13" fill="#8B949E">Commits</text>
+  <g class="fade d2">
+    <text class="value" x="246" y="112">133</text>
+    <text class="label" x="246" y="134">Commits</text>
   </g>
-  <g>
-    <text x="460" y="112" font-size="36" font-weight="700" fill="#E6EDF3">1</text>
-    <text x="460" y="136" font-size="13" fill="#8B949E">Public repositories</text>
+  <g class="fade d3">
+    <text class="value" x="460" y="112">1</text>
+    <text class="label" x="460" y="134">Public repositories</text>
   </g>
-  <g>
-    <text x="674" y="112" font-size="36" font-weight="700" fill="#E6EDF3">C#</text>
-    <text x="674" y="136" font-size="13" fill="#8B949E">Primary language</text>
+  <g class="fade d4">
+    <text class="value" x="674" y="112">C#</text>
+    <text class="label" x="674" y="134">Primary language</text>
   </g>
 
-  <text x="32" y="186" font-size="13" font-weight="600" fill="#C9D1D9">Languages</text>
-  <rect x="32" y="198" width="776" height="10" rx="5" fill="#21262D"/>
-  <rect x="32" y="198" width="669" height="10" rx="5" fill="#C9A227"/>
-  <rect x="701" y="198" width="103" height="10" fill="#58A6FF"/>
-  <rect x="804" y="198" width="4" height="10" rx="2" fill="#F78166"/>
+  <text class="label" x="32" y="172">Languages</text>
+  <rect x="32" y="184" width="776" height="10" rx="5" fill="#21262D" />
+  <rect class="grow" x="32" y="184" width="669.7" height="10" rx="5" fill="#C9A227" />
+  <rect class="grow g2" x="701.7" y="184" width="103.2" height="10" fill="#58A6FF" />
+  <rect class="grow g3" x="804.9" y="184" width="2.3" height="10" rx="1" fill="#F78166" />
 
-  <circle cx="40" cy="234" r="5" fill="#C9A227"/>
-  <text x="52" y="238" font-size="13" fill="#C9D1D9">C#  86.3%</text>
-  <circle cx="160" cy="234" r="5" fill="#58A6FF"/>
-  <text x="172" y="238" font-size="13" fill="#C9D1D9">JavaScript  13.3%</text>
-  <circle cx="306" cy="234" r="5" fill="#F78166"/>
-  <text x="318" y="238" font-size="13" fill="#C9D1D9">HTML  0.3%</text>
-
-  <text x="32" y="276" font-size="11" fill="#6E7681">Includes private repositories. Snapshot updated manually.</text>
+  <g class="legend">
+    <circle cx="40" cy="222" r="5" fill="#C9A227" />
+    <text class="label" x="52" y="226" style="fill:#C9D1D9">C#  86.3%</text>
+    <circle cx="160" cy="222" r="5" fill="#58A6FF" />
+    <text class="label" x="172" y="226" style="fill:#C9D1D9">JavaScript  13.3%</text>
+    <circle cx="306" cy="222" r="5" fill="#F78166" />
+    <text class="label" x="318" y="226" style="fill:#C9D1D9">HTML  0.3%</text>
+  </g>
 </svg>
